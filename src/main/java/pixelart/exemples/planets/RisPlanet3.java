@@ -1,12 +1,18 @@
 /*     */ package pixelart.exemples.planets;
 /*     */ 
-/*     */ import java.awt.Color;
-/*     */ import java.awt.Graphics;
-/*     */ import java.awt.Point;
-/*     */ import java.io.IOException;
-/*     */ import java.util.Hashtable;
 /*     */
-/*     */ public class Planets2
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.Hashtable;
+
+/*     */
+/*     */
+/*     */
+/*     */
+
+/*     */
+/*     */ public class RisPlanet3
 /*     */   extends pixelart.base.BaseMovieGenerator
 /*     */ {
 /*     */   private int[] x;
@@ -17,8 +23,8 @@
 /*     */   private double[] poids;
 /*     */   private Point[][] history;
 /*     */   private int historySize;
-/*     */   
-/*     */   public Planets2(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
+/*     */
+/*     */   public RisPlanet3(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
 /*  25 */     super(dossier, prefix, largeur, hauteur, isGui);
 
 /*     */   }
@@ -137,7 +143,7 @@
 /* 138 */       path = args[0];
     if (args.length > 1)
         isGui = Boolean.parseBoolean(args[1]);
-/* 139 */     Planets2 c = new Planets2(path, "im2-", 1388, 768, isGui);
+/* 139 */     RisPlanet3 c = new RisPlanet3(path, "im2-", 1388, 768, isGui);
 /* 140 */     c.init(100);
 /*     */     
 /* 142 */     for (int i = 0; i < 12500; i++) {

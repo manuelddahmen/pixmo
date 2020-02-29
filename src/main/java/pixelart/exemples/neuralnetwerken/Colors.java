@@ -18,20 +18,9 @@ import java.awt.*;
 
     /*    */
 /*    */
-    public Colors(String dossier, String prefix, int largeur, int hauteur) {
-/* 15 */
-        super(largeur, hauteur);
-/* 16 */
-        this.cn = new pixelart.exemples.neuralnetwerken.ColorNetwerk(largeur, hauteur, 20, 5);
-/*    */
-    }
-
-    /*    */
-/*    */ 
-/*    */   
-/*    */
-    public Colors() {
+    public Colors(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
 /* 22 */
+        super(dossier, prefix, largeur, hauteur, isGui);
         this.cn = new pixelart.exemples.neuralnetwerken.ColorNetwerk(this.largeur, this.hauteur, 20, 5);
 /*    */
     }
@@ -100,12 +89,15 @@ import java.awt.*;
 /*    */
     public static void main(String[] args) {
 /* 69 */
-        String path = "outimg\\";
+        String path = "colors";
 /* 70 */
+        boolean isGui = false;
         if (args.length > 0)
 /* 71 */ path = args[0];
+        if (args.length > 1)
+            isGui = Boolean.parseBoolean(args[1]);
 /* 72 */
-        Colors c = new Colors(path, "im2-", 1388, 768);
+        Colors c = new Colors(path, "im2-", 1388, 768, isGui);
 /* 73 */
         c.initMontrerImage();
 /* 74 */

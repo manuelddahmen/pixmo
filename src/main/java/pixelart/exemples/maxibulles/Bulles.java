@@ -16,12 +16,13 @@
 /* 16 */   private double[] w = new double[10000];
 /* 17 */   private int[] dy = new int[10000];
 /* 18 */   private int[] dx = new int[10000];
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */   
+
+    public Bulles(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
+        super(dossier, prefix, largeur, hauteur, isGui);
+    }
+
+
+    /*    */
 /*    */   public void dessiner2(int i) {
 /* 26 */     Random r = new Random();
 /*    */     

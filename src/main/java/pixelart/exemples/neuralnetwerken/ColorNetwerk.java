@@ -19,6 +19,8 @@
 /*     */   private Point[][] centers;
 /*     */   
 /*     */   public ColorNetwerk(int largeur, int hauteur, int numColors, int numNeurons) {
+
+
 /*  22 */     this.colors = new double[3][numColors * numNeurons];
 /*  23 */     this.sum = new double[3][numColors * numNeurons];
 /*  24 */     this.neuronS = new double[3][numNeurons];

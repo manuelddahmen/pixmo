@@ -19,8 +19,9 @@ import java.awt.Color;
 /*     */
 /*     */ public abstract class BaseMovieGenerator
 /*     */ {
-    /*  18 */   private String dossier = "";
-    /*  19 */   private String prefix = "";
+    protected boolean isGui;
+    /*  18 */    protected String dossier = "";
+    /*  19 */    protected String prefix = "";
     /*  20 */   protected int largeur = 1388;
     /*  21 */   protected int hauteur = 768;
     /*  22 */   private int frame = 100000;
@@ -48,14 +49,20 @@ import java.awt.Color;
 /*     */ 
 /*     */   
 /*     */
-    public BaseMovieGenerator(int largeur, int hauteur) {
+    public BaseMovieGenerator(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
 /*  45 */
-        this();
 /*  46 */
+
+        this.dossier = dossier;
+        this.prefix = prefix;
         this.largeur = largeur;
 /*  47 */
         this.hauteur = hauteur;
 /*     */
+
+        this.isGui = isGui;
+
+        initFolder();
     }
 
     /*     */
@@ -67,7 +74,8 @@ import java.awt.Color;
         this.image = new BufferedImage(this.largeur, this.hauteur, BufferedImage.TYPE_INT_ARGB);
 /*  54 */
         this.g = this.image.createGraphics();
-        this.g2 = this.jPanel.getGraphics();
+        if (isGui)
+            this.g2 = this.jPanel.getGraphics();
 /*     */
     }
 
@@ -79,11 +87,13 @@ import java.awt.Color;
 /*     */
     public void enregistrerImage() throws IOException {
 /*  62 */
-        String filename = String.valueOf(this.dossier) + this.prefix + File.pathSeparator + this.frame +
+        String filename = String.valueOf(this.dossier) + this.prefix + this.frame +
 /*  63 */       ".jpg";
 /*  64 */
         this.frame++;
-/*  65 */
+
+        System.out.println(filename);
+
         ImageIO.write(this.image, "jpg", new File(filename));
 /*  66 */
 /*     */
@@ -95,25 +105,27 @@ import java.awt.Color;
 /*     */
     public void initMontrerImage() {
 /*  72 */
-        JFrame jjFrame = new JFrame("Video");
+        if (isGui) {
+            JFrame jjFrame = new JFrame("Video");
 /*  73 */
-        this.jPanel = new JPanel();
+            this.jPanel = new JPanel();
 /*  74 */
-        this.jPanel.setMinimumSize(new Dimension(this.largeur, this.hauteur));
+            this.jPanel.setMinimumSize(new Dimension(this.largeur, this.hauteur));
 /*  75 */
-        jjFrame.add(this.jPanel);
+            jjFrame.add(this.jPanel);
 /*  76 */
-        jjFrame.setContentPane(this.jPanel);
+            jjFrame.setContentPane(this.jPanel);
 /*  77 */
-        jjFrame.setMinimumSize(new Dimension(this.largeur, this.hauteur));
+            jjFrame.setMinimumSize(new Dimension(this.largeur, this.hauteur));
 /*  78 */
-        this.jPanel.setBounds(0, 0, this.largeur, this.hauteur);
+            this.jPanel.setBounds(0, 0, this.largeur, this.hauteur);
 /*  79 */
-        jjFrame.setDefaultCloseOperation(3);
+            jjFrame.setDefaultCloseOperation(3);
 /*  80 */
-        jjFrame.pack();
+            jjFrame.pack();
 /*  81 */
-        jjFrame.setVisible(true);
+            jjFrame.setVisible(true);
+        }
 /*     */     
 /*  83 */
         //this.gPrim = this.jPanel.getGraphics();
@@ -186,16 +198,16 @@ import java.awt.Color;
 
     /*     */
 /* 118 */
-    public BaseMovieGenerator() {
+    public void initFolder() {
         this.frame0 = 0;
         pixelart.base.Directories d = new pixelart.base.Directories();
         int i = 0;
         d.setBaseDir("");
         d.setMovieDir(getClass());
-        this.dossier = String.valueOf(d.getMovieDir(getClass())) + File.separator;
+        this.dossier = String.valueOf(d.getBaseDir());
         File f = new File(String.valueOf(this.dossier) + File.separator + "0");
         while (f.exists())
-/*     */ f = new File(String.valueOf(this.dossier) + File.separator + i++);
+            f = new File(String.valueOf(this.dossier) + File.separator + i++);
         this.dossier = String.valueOf(f.getAbsolutePath()) + File.separator;
         f.mkdirs();
 /*     */
@@ -286,8 +298,8 @@ import java.awt.Color;
         g2.setColor(color);
 /* 51 */
         g2.drawRect(x, y, 1, 1);
-        g.drawRect((int)(1.0*x/image.getWidth()*jPanel.getWidth()),
-                (int)(1.0*y/image.getHeight()*jPanel.getHeight())
+        g.drawRect((int) (1.0 * x / image.getWidth() * jPanel.getWidth()),
+                (int) (1.0 * y / image.getHeight() * jPanel.getHeight())
                 , 1, 1);
     }
 }
