@@ -61,8 +61,9 @@ import java.awt.Color;
 /*     */
 
         this.isGui = isGui;
+      new File(dossier). mkdirs() ;
 
-        initFolder();
+        //initFolder();
     }
 
     /*     */
@@ -87,12 +88,12 @@ import java.awt.Color;
 /*     */
     public void enregistrerImage() throws IOException {
 /*  62 */
-        String filename = String.valueOf(this.dossier) + this.prefix + this.frame +
+        String filename = this.dossier + File.separator + this.prefix + this.frame +
 /*  63 */       ".jpg";
 /*  64 */
         this.frame++;
 
-        System.out.println(filename);
+        System.out.println(new File(filename)) ;
 
         ImageIO.write(this.image, "jpg", new File(filename));
 /*  66 */
@@ -198,7 +199,7 @@ import java.awt.Color;
 
     /*     */
 /* 118 */
-    public void initFolder() {
+  /*  public void initFolder() {
         this.frame0 = 0;
         pixelart.base.Directories d = new pixelart.base.Directories();
         int i = 0;
@@ -210,13 +211,13 @@ import java.awt.Color;
             f = new File(String.valueOf(this.dossier) + File.separator + i++);
         this.dossier = String.valueOf(f.getAbsolutePath()) + File.separator;
         f.mkdirs();
-/*     */
+/*     
         this.prefix = "im-";
-/*     */
+/*     
         this.largeur = 1388;
-/* 122 */
+/* 122 
         this.hauteur = 768;
-    }
+    }*/
 
     public int getFrame0() {
         return this.frame0;
@@ -294,14 +295,21 @@ import java.awt.Color;
 /*     */
 
 
-    public void setRgb(Color color, int x, int y) {
-        g2.setColor(color);
+    public void setRGB(int x, int y, Color color) {
+      
+        g.setColor(color);
 /* 51 */
-        g2.drawRect(x, y, 1, 1);
-        g.drawRect((int) (1.0 * x / image.getWidth() * jPanel.getWidth()),
+        g.drawRect(x, y, 1, 1);
+      if(isGui) {
+        g2.drawRect((int) (1.0 * x / image.getWidth() * jPanel.getWidth()),
                 (int) (1.0 * y / image.getHeight() * jPanel.getHeight())
                 , 1, 1);
+       } 
     }
+  
+  public int getRGB(int x, int y) {
+    return image. getRGB(x, y) ;
+  } 
 }
 
 

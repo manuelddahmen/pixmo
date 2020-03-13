@@ -68,7 +68,7 @@ import java.awt.*;
 
                 g2.setColor(color);
 /* 51 */
-                setRgb(color, x, y);
+                setRGB( x, y, color);
             }
 /* 53 */
         }

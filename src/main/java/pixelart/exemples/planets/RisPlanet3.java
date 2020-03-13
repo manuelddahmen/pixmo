@@ -111,7 +111,7 @@ import java.util.Hashtable;
 /* 107 */           y0 - d + j < this.hauteur) {
 /* 108 */           float d0 = (float)Math.sqrt(((i - d) * (i - d) + (j - d) * (
 /* 109 */               j - d)));
-/* 110 */           int c1 = this.image.getRGB(x0 - d + i, y0 - d + j);
+/* 110 */           int c1 = getRGB(x0 - d + i, y0 - d + j);
 /* 111 */           int c = 16777215;
 /* 112 */           int c2 = 0;
 /* 113 */           if ((c1 >> 16 & 0xFF) + 0.0D < ((c >> 16 & 0xFF) * 
@@ -127,7 +127,7 @@ import java.util.Hashtable;
 /* 123 */             c2 += c1 & 0xFF;
 /*     */           } else {
 /* 125 */             c2 = (int)(c * (1.0F - d0 / d));
-/* 126 */           }  this.image.setRGB(x0 - d + i, y0 - d + j, c2);
+/* 126 */           }  setRGB(x0 - d + i, y0 - d + j,new Color( c2) );
 /*     */         } 
 /*     */       } 
 /*     */     } 
@@ -137,7 +137,7 @@ import java.util.Hashtable;
 /*     */   public void modifierImage() {}
 /*     */   
 /*     */   public static void main(String[] args) {
-/* 136 */     String path = "c:\\users\\manuel\\pictures\\films\\33\\";
+/* 136 */     String path = "";
             boolean isGui = false;
 /* 137 */     if (args.length > 0)
 /* 138 */       path = args[0];
@@ -145,6 +145,7 @@ import java.util.Hashtable;
         isGui = Boolean.parseBoolean(args[1]);
 /* 139 */     RisPlanet3 c = new RisPlanet3(path, "im2-", 1388, 768, isGui);
 /* 140 */     c.init(100);
+c.initMontrerImage();
 /*     */     
 /* 142 */     for (int i = 0; i < 12500; i++) {
 /* 143 */       c.creerImage();
