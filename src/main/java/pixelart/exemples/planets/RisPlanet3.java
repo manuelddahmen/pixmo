@@ -5,7 +5,7 @@
 import java.awt.*;
 import java.io.IOException;
 import java.util.Hashtable;
-
+import java.awt.Color;
 /*     */
 /*     */
 /*     */
@@ -110,24 +110,33 @@ import java.util.Hashtable;
 /* 106 */         if (x0 - d + i >= 0 && x0 - d + i < this.largeur && y0 - d + j >= 0 && 
 /* 107 */           y0 - d + j < this.hauteur) {
 /* 108 */           float d0 = (float)Math.sqrt(((i - d) * (i - d) + (j - d) * (
-/* 109 */               j - d)));
+/* 109 */               j - d))) ;
+
 /* 110 */           int c1 = getRGB(x0 - d + i, y0 - d + j);
-/* 111 */           int c = 16777215;
+/* 111 */           int c = 
+6777215;
 /* 112 */           int c2 = 0;
+
 /* 113 */           if ((c1 >> 16 & 0xFF) + 0.0D < ((c >> 16 & 0xFF) * 
 /* 114 */             d0 / d)) {
-/* 115 */             c2 += c1 & 0xFF0000;
+/* 115 */             c2 += c1 & 0;//0xFF0000;
 /*     */           } else {
 /* 117 */             c2 = (int)(c * (1.0F - d0 / d));
 /* 118 */           }  if ((c1 >> 8 & 0xFF) + 0.0D < ((c >> 8 & 0xFF) * d0 / d)) {
-/* 119 */             c2 += c1 & 0xFF00;
+/* 119 */             c2 += c1 & 0;//0xFF00;
 /*     */           } else {
 /* 121 */             c2 = (int)(c * (1.0F - d0 / d));
 /* 122 */           }  if ((c1 & 0xFF) + 0.0D < ((c & 0xFF) * d0 / d)) {
-/* 123 */             c2 += c1 & 0xFF;
+/* 123 */             c2 += c1 & 0;//0xFF;
 /*     */           } else {
 /* 125 */             c2 = (int)(c * (1.0F - d0 / d));
-/* 126 */           }  setRGB(x0 - d + i, y0 - d + j,new Color( c2) );
+/* 126 */           }  
+int xo = x0 - d + i;
+int yo = y0 - d + j;
+Color cc2 = new Color(c2) ;
+
+if(! cc2.equals(Color.BLACK)) 
+    setRGB(xo, yo, cc2) ;
 /*     */         } 
 /*     */       } 
 /*     */     } 
