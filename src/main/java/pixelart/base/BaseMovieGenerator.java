@@ -65,7 +65,9 @@ import java.awt.Color;
 
         //initFolder();
     }
-
+public int frame() {
+  return frame0;
+} 
     /*     */
 /*     */ 
 /*     */   
@@ -226,55 +228,60 @@ import java.awt.Color;
     /*     */
 /*     */   
 /*     */
-    public void doit(Hashtable<String, Object> params) {
-/* 126 */
-        this.largeur = Integer.parseInt((String) params.get("largeur"));
+    public void doit(BaseMovieGenerator b, Hashtable<String, Object> params) {
+/* 126 */if(params  == null) 
+  params = new Hashtable() ;
+       // this.largeur = Integer.parseInt((String) params.get("largeur"));
 /* 127 */
-        this.hauteur = Integer.parseInt((String) params.get("hauteur"));
+        //this.hauteur = Integer.parseInt((String) params.get("hauteur"));
 /* 128 */
-        this.frame0 = 0;
+        b.frame0 = 0;
 /* 129 */
-        init(params);
+        b.init(params);
 /* 130 */
-        if (params.containsKey("ecran"))
-/* 131 */ initMontrerImage();
+       // if (params.containsKey("ecran"))
+/* 131 */ b.initMontrerImage();
 /* 132 */
-        for (int i = 0; i < ((Integer) params.get("nombre")).intValue(); i++) {
-/* 133 */
-            creerImage();
+
+        for (int i = 0; i < 12590/*((Integer) params.get("nombre")).intValue()*/; i++) {
+/* 133 */   b.initImage();
+            b.creerImage();
 /* 134 */
-            initImage();
+            b.initImage();
 /* 135 */
-            dessiner();
+            b.dessiner();
 /*     */
             try {
 /* 137 */
-                enregistrerImage();
+                b
+                  
+                
+                 . enregistrerImage();
 /* 138 */
                 System.out.println(i);
 /* 139 */
             } catch (IOException e) {
 /* 140 */
                 e.printStackTrace();
-/*     */
+
             }
 /* 142 */
             this.frame0++;
 /* 143 */
-            this.label.setText(String.valueOf(this.frame0));
+           // this.label.setText(String.valueOf(this.frame0));
 /*     */
         }
 /*     */
     }
 
     /*     */
-/*     */
+/*     
     public void doit(Hashtable<String, Object> hashtable, JLabel nbrImages) {
-/* 148 */
+/* 148
         this.label = nbrImages;
-/* 149 */
+/* 149 
         doit(hashtable);
-/*     */
+/*     
     }
 
     /*     */
@@ -297,9 +304,9 @@ import java.awt.Color;
 
     public void setRGB(int x, int y, Color color) {
       
-        g.setColor(color);
-/* 51 */
-        g.drawRect(x, y, 1, 1);
+        //g.setColor(color);
+
+        image.setRGB(x, y, color.getRGB());
       if(isGui) {
         g2.drawRect((int) (1.0 * x / image.getWidth() * jPanel.getWidth()),
                 (int) (1.0 * y / image.getHeight() * jPanel.getHeight())
@@ -307,8 +314,14 @@ import java.awt.Color;
        } 
     }
   
-  public int getRGB(int x, int y) {
-    return image. getRGB(x, y) ;
+  public Color
+    
+getRGB(int x, int y) {
+    return new Color(image. getRGB(x, y) ) ;
+  } 
+  public static void doit(BaseMovieGenerator b) {
+    b. 
+doit(b, null) ;
   } 
 }
 

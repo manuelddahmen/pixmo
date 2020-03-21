@@ -23,13 +23,31 @@ import java.awt.Color;
 /*     */   private double[] poids;
 /*     */   private Point[][] history;
 /*     */   private int historySize;
-/*     */
+/*     */ private int [] [] [] pix = new int[largeur] [hauteur][3] ;
 /*     */   public RisPlanet3(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
 /*  25 */     super(dossier, prefix, largeur, hauteur, isGui);
 
 /*     */   }
-/*     */ 
-/*     */   
+/*     */ public int [] fromColor(Color color) 
+/*     */   {
+return new int [] {color.getRed(), color.getGreen(), color.getBlue()/*, color.getAlpha()*/} ;
+} 
+public Color toColor (int [] colors) {
+    return new Color(colors[0], colors[1] , colors[2]/*, colors[3] */) ;
+} 
+public int[] modulo(int [] colors, int mod) {
+for(int i = 0; i<colors.length; i++) 
+colors[i]  = (colors[i] +256)%mod;
+return colors;
+} 
+public int[] plus(int [] arr, int [] plus) {
+for(int c=0; c<arr.length; c++) 
+arr[c] += plus[c] ;
+return arr;
+} 
+public int toInt(int[] colors) {
+return 0;
+} 
 /*     */   public void init(int numElectrons) {
 /*  30 */     this.numElectrons = numElectrons;
 /*  31 */     this.x = new int[numElectrons + 1];
@@ -57,8 +75,9 @@ import java.awt.Color;
 /*  53 */     this.history = new Point[numElectrons + 1][this.historySize];
 /*     */   }
 /*     */ 
-/*     */   
+/*     */   int max;
 /*     */   public void initImage() {
+max = Integer.MIN_VALUE;
 /*  58 */     for (int j = 0; j < this.numElectrons + 1; j++) {
 /*  59 */       for (int k = this.historySize - 1; k > 0; k--) {
 /*  60 */         this.history[j][k] = this.history[j][k - 1];
@@ -80,24 +99,30 @@ import java.awt.Color;
 /*  76 */         this.y[i] - this.y[0]));
 /*     */     } 
 /*  78 */     System.out.println("dx[1]= " + this.dx[1] + "  dy[1]= " + this.dy[1]);
+for(int x=0; x<largeur ; x++) 
+for(int y=0; y<hauteur; y++) 
+for(int c=0; c<3; c++) 
+pix[x] [y] [c] = 0;
 /*     */   }
 /*     */ 
-/*     */ 
+/*     */ public float deltaF() {
+int Tf = 50;
+    return (float) ((frame0%Tf) /25.0) ;
+} 
 /*     */   
 /*     */   public void dessiner() {
-/*     */     Graphics g2;
-/*  85 */     if (this.gPrim != null) {
-/*  86 */       g2 = this.gPrim;
-/*     */     } else {
-/*  88 */       g2 = this.g;
-/*  89 */     }  g2.setColor(Color.WHITE);
-/*  90 */     g2.fillRect(0, 0, this.largeur, this.hauteur);
-/*  91 */     g2.setColor(Color.red);
-/*  92 */     g2.fillOval(this.x[0], this.y[0], 30, 30);
+/*  89 */     
+
+g.setColor(Color.BLUE);//new Color(deltaF(), deltaF(), deltaF() )) ;
+/*  90 */     //g2.fillRect(0, 0, this.largeur, this.hauteur);
+/*  91 */     g.setColor(Color.red);
+/*  92 */     //g2.fillOval(this.x[0], this.y[0], 30, 30);
 /*  93 */     for (int i = 1; i < this.poids.length; i++) {
-/*  94 */       g2.setColor(Color.blue);
-/*     */ 
-/*     */       
+/*  94 */       
+/*     */ g2.fillOval(this.x[i], this.y[i], 30, 30);
+
+
+                
 /*  97 */       for (int h = 0; h < this.historySize; h++) {
 /*  98 */         if (this.history[i][h] != null)
 /*  99 */           dessinerForme((int)this.history[i][h].getX(), (int)this.history[i][h].getY(), this.historySize - h); 
@@ -105,6 +130,7 @@ import java.awt.Color;
 /*     */     } 
 /*     */   }
 /*     */   protected void dessinerForme(int x0, int y0, int d) {
+
 /* 104 */     for (int i = 0; i < d * 2; i++) {
 /* 105 */       for (int j = 0; j < d * 2; j++) {
 /* 106 */         if (x0 - d + i >= 0 && x0 - d + i < this.largeur && y0 - d + j >= 0 && 
@@ -112,34 +138,49 @@ import java.awt.Color;
 /* 108 */           float d0 = (float)Math.sqrt(((i - d) * (i - d) + (j - d) * (
 /* 109 */               j - d))) ;
 
-/* 110 */           int c1 = getRGB(x0 - d + i, y0 - d + j);
-/* 111 */           int c = 
-6777215;
-/* 112 */           int c2 = 0;
+/* 110 */           Color c = getRGB(x0 - d + i, y0 - d + j);
+/* 111 */           int [] c1 = fromColor(c) ;
+//6777215;
+/* 112 */           int [] c2 = new int[] {0,0,0} ;
 
-/* 113 */           if ((c1 >> 16 & 0xFF) + 0.0D < ((c >> 16 & 0xFF) * 
-/* 114 */             d0 / d)) {
-/* 115 */             c2 += c1 & 0;//0xFF0000;
-/*     */           } else {
-/* 117 */             c2 = (int)(c * (1.0F - d0 / d));
-/* 118 */           }  if ((c1 >> 8 & 0xFF) + 0.0D < ((c >> 8 & 0xFF) * d0 / d)) {
-/* 119 */             c2 += c1 & 0;//0xFF00;
-/*     */           } else {
-/* 121 */             c2 = (int)(c * (1.0F - d0 / d));
-/* 122 */           }  if ((c1 & 0xFF) + 0.0D < ((c & 0xFF) * d0 / d)) {
-/* 123 */             c2 += c1 & 0;//0xFF;
-/*     */           } else {
-/* 125 */             c2 = (int)(c * (1.0F - d0 / d));
-/* 126 */           }  
+/* 113 */           
+/* 114 *
+/* 115 */             
+/*     *
+/* 117 */             c2[0] = (int)((c1[0] ) * (d0 / d));
+
+/* 119 */             
+/*     *
+/* 121 */             c2[1] = (int)((c1[1] ) * (d0 / d));
+/* 122 */           
+/* 123 */             
+/*     *
+/* 125 */             c2[2] = (int)((c1[2] ) * (d0 / d));
+/* 126 */
 int xo = x0 - d + i;
 int yo = y0 - d + j;
-Color cc2 = new Color(c2) ;
 
-if(! cc2.equals(Color.BLACK)) 
-    setRGB(xo, yo, cc2) ;
+
+plus(pix[xo] [yo], c2) ; 
+
+
+
+modulo(pix[xo] [yo], 256);
+
+
+
+
+    
 /*     */         } 
 /*     */       } 
-/*     */     } 
+/*     */     }
+for(int x = 0; x < largeur ; x++) 
+for(int y = 0; y < hauteur; y++) {
+//for(int c =0; c<4; c++) 
+//pix[x] [y][c] /= max;
+//modulo(pix[x] [y] , 256 ) ;
+setRGB(x, y, toColor(pix[x] [y] ) ) ;
+} 
 /*     */   }
 /*     */ 
 /*     */   
@@ -152,7 +193,7 @@ if(! cc2.equals(Color.BLACK))
 /* 138 */       path = args[0];
     if (args.length > 1)
         isGui = Boolean.parseBoolean(args[1]);
-/* 139 */     RisPlanet3 c = new RisPlanet3(path, "im2-", 1388, 768, isGui);
+/* 139 */     RisPlanet3 c = new RisPlanet3(path, "img", 1388, 768, isGui);
 /* 140 */     c.init(100);
 c.initMontrerImage();
 /*     */     

@@ -36,13 +36,7 @@
 /*    */ 
 /*    */   
 /*    */   public void dessiner(int i) {
-/*    */     Graphics g2;
-/* 39 */     if (this.gPrim != null) {
-/* 40 */       g2 = this.gPrim;
-/*    */     } else {
-/* 42 */       g2 = this.g;
-/*    */     } 
-/*    */     
+
 /* 45 */     Rectangle2D rect = new Rectangle2D.Float();
 /* 46 */     this.y[i] = this.y[i] - this.dy[i];
 /* 47 */     this.x[i] = this.x[i] + this.dx[i];
@@ -51,8 +45,8 @@
 /* 50 */     rect.setRect(this.x[i], this.y[i], this.w[i], this.h[i]);
 /* 51 */     Ellipse2D e = new Ellipse2D.Float();
 /* 52 */     e.setFrame(rect);
-/* 53 */     g2.setColor(Color.RED);
-/* 54 */     g2.fillOval((int)this.x[i], (int)this.y[i], (int)this.w[i], (int)this.h[i]);
+/* 53 */     g.setColor(Color.RED);
+/* 54 */     g.fillOval((int)this.x[i], (int)this.y[i], (int)this.w[i], (int)this.h[i]);
 /*    */   }
 /*    */ 
 /*    */ 
@@ -76,19 +70,12 @@
 /* 75 */       dessiner2(i);
 /*    */     }
 /*    */   }
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */   
-/*    */   public void initImage() {
-/*    */     Graphics g2;
-/* 84 */     if (this.gPrim != null) {
-/* 85 */       g2 = this.gPrim;
-/*    */     } else {
-/* 87 */       g2 = this.g;
-/* 88 */     }  g2.setColor(Color.BLACK);
-/* 89 */     g2.fillRect(0, 0, this.largeur, this.hauteur);
-/*    */   }
+public void initImage() {}
+  
+  public static void main(String[] args) {
+       Bulles b = new Bulles(args[0], "img", 2000, 2000, false) ;
+       pixelart.base.BaseMovieGenerator.doit(b) ;
+  } 
 /*    */ }
 
 
