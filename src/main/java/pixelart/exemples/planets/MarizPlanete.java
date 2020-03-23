@@ -12,7 +12,7 @@ import java.awt.Color;
 /*     */
 
 /*     */
-/*     */ public class RisPlanet3
+/*     */ public class MarizPlanete
 /*     */   extends pixelart.base.BaseMovieGenerator
 /*     */ {
 /*     */   private int[] x;
@@ -24,7 +24,7 @@ import java.awt.Color;
 /*     */   private Point[][] history;
 /*     */   private int historySize;
 /*     */ private int [] [] [] pix = new int[largeur] [hauteur][3] ;
-/*     */   public RisPlanet3(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
+/*     */   public MarizPlanete(String dossier, String prefix, int largeur, int hauteur, boolean isGui) {
 /*  25 */     super(dossier, prefix, largeur, hauteur, isGui);
 
 /*     */   }
@@ -46,7 +46,7 @@ arr[c] += plus[c] ;
 return arr;
 } 
 public int toInt(int[] colors) {
-return 0;
+return (colors[2]<<16) +(colors[1]<<8) +(colors[0]) ;
 } 
 /*     */   public void init(int numElectrons) {
 /*  30 */     this.numElectrons = numElectrons;
@@ -115,20 +115,23 @@ int Tf = 50;
 
 g.setColor(Color.BLUE);//new Color(deltaF(), deltaF(), deltaF() )) ;
 /*  90 */     //g2.fillRect(0, 0, this.largeur, this.hauteur);
-/*  91 */     g.setColor(Color.red);
+/*  91 */     g.setColor(Color.WHITE);
 /*  92 */     //g2.fillOval(this.x[0], this.y[0], 30, 30);
 /*  93 */     for (int i = 1; i < this.poids.length; i++) {
 /*  94 */       
-/*     */ g2.fillOval(this.x[i], this.y[i], 30, 30);
+/*     */ g.fillOval(this.x[i], this.y[i], 30, 30);
 
 
                 
 /*  97 */       for (int h = 0; h < this.historySize; h++) {
-/*  98 */         if (this.history[i][h] != null)
-/*  99 */           dessinerForme((int)this.history[i][h].getX(), (int)this.history[i][h].getY(), this.historySize - h); 
+/*  98 */         if (this.history[i][h] != null) {
+g.setColor(Color.WHITE);
+g.fillOval((int)history[i][h].getX(),(int) history[i][h].getY(), history[i].length-i, history[i].length-i);
+/*  99 */           dessinerForme((int)this.history[i][h].getX(), (int)this.history[i][h].getY(),historySize - h); 
 /*     */       } 
 /*     */     } 
 /*     */   }
+}
 /*     */   protected void dessinerForme(int x0, int y0, int d) {
 
 /* 104 */     for (int i = 0; i < d * 2; i++) {
@@ -193,8 +196,8 @@ setRGB(x, y, toColor(pix[x] [y] ) ) ;
 /* 138 */       path = args[0];
     if (args.length > 1)
         isGui = Boolean.parseBoolean(args[1]);
-/* 139 */     RisPlanet3 c = new RisPlanet3(path, "img", 1388, 768, isGui);
-/* 140 */     c.init(100);
+/* 139 */     MarizPlanete c = new MarizPlanete(path, "img", 1388, 768, isGui);
+c.init(100);
 c.initMontrerImage();
 /*     */     
 /* 142 */     for (int i = 0; i < 12500; i++) {

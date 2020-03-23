@@ -131,7 +131,7 @@
 /*     */   public void modifierImage() {}
 /*     */   
 /*     */   public static void main(String[] args) {
-/* 136 */     String path = "c:\\users\\manuel\\pictures\\films\\33\\";
+/* 136 */     String path = "";
             boolean isGui = false;
 /* 137 */     if (args.length > 0)
 /* 138 */       path = args[0];
