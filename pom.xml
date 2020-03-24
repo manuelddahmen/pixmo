@@ -77,9 +77,30 @@
                 </configuration>
 
             </plugin>
-
-
-            <plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <!-- Default configuration for all reports -->
+          
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+              <goal>javadoc</goal>
+              <goal>test-javadoc</goal>
+            </goals>
+            
+            <configuration>
+              <!-- Specific configuration for the given reports -->
+              
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+          <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                 </executions>
@@ -225,5 +246,10 @@
             <artifactId>webcam-capture</artifactId>
             <version>0.3.9</version>
         </dependency>
+      <dependency>
+        <groupId>one.empty3</groupId>
+          <artifactId>empty3-library-3d</artifactId>
+        <version>2020.1</version>
+      </dependency>
     </dependencies>
 </project>

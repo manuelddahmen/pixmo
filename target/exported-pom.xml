@@ -131,6 +131,12 @@
       <version>0.3.9</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>one.empty3</groupId>
+      <artifactId>empty3-library-3d</artifactId>
+      <version>2020.1</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
@@ -295,6 +301,21 @@
           <target>1.8</target>
           <encoding>UTF-8</encoding>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+              <goal>javadoc</goal>
+              <goal>test-javadoc</goal>
+            </goals>
+            <configuration></configuration>
+          </execution>
+        </executions>
+        <configuration></configuration>
       </plugin>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>

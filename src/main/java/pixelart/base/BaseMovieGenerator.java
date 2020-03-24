@@ -66,7 +66,7 @@ import java.awt.Color;
         //initFolder();
     }
 public int frame() {
-  return frame0;
+  return frame;
 } 
     /*     */
 /*     */ 

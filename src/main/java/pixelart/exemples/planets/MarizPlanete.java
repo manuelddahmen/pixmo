@@ -6,6 +6,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.awt.Color;
+//import one.empty3.library.Colors;
 /*     */
 /*     */
 /*     */
@@ -21,6 +22,7 @@ import java.awt.Color;
 /*     */   private double[] dx;
 /*     */   private double[] dy;
 /*     */   private double[] poids;
+private Color[] colors;
 /*     */   private Point[][] history;
 /*     */   private int historySize;
 /*     */ private int [] [] [] pix = new int[largeur] [hauteur][3] ;
@@ -55,7 +57,7 @@ return (colors[2]<<16) +(colors[1]<<8) +(colors[0]) ;
 /*  33 */     this.dx = new double[numElectrons + 1];
 /*  34 */     this.dy = new double[numElectrons + 1];
 /*  35 */     this.poids = new double[numElectrons];
-/*     */     
+/*     */     this.colors = new Color[numElectrons+1] ;
 /*  37 */     this.poids[0] = 1000.0D; int i;
 /*  38 */     for (i = 0; i < this.poids.length; i++)
 /*  39 */       this.poids[i] = 1.0D; 
@@ -79,6 +81,7 @@ return (colors[2]<<16) +(colors[1]<<8) +(colors[0]) ;
 /*     */   public void initImage() {
 max = Integer.MIN_VALUE;
 /*  58 */     for (int j = 0; j < this.numElectrons + 1; j++) {
+//colors[j] = Colors.random();
 /*  59 */       for (int k = this.historySize - 1; k > 0; k--) {
 /*  60 */         this.history[j][k] = this.history[j][k - 1];
 /*     */       }
@@ -107,7 +110,7 @@ pix[x] [y] [c] = 0;
 /*     */ 
 /*     */ public float deltaF() {
 int Tf = 50;
-    return (float) ((frame0%Tf) /25.0) ;
+    return (float) ((frame() %Tf) /25.0) ;
 } 
 /*     */   
 /*     */   public void dessiner() {
@@ -147,18 +150,18 @@ g.fillOval((int)history[i][h].getX(),(int) history[i][h].getY(), history[i].leng
 /* 112 */           int [] c2 = new int[] {0,0,0} ;
 
 /* 113 */           
-/* 114 *
+float ratio = d0/(d<1f?1f:d);
 /* 115 */             
 /*     *
-/* 117 */             c2[0] = (int)((c1[0] ) * (d0 / d));
+/* 117 */             c2[0] = (int)((c1[0]  * ratio)) ;
 
 /* 119 */             
 /*     *
-/* 121 */             c2[1] = (int)((c1[1] ) * (d0 / d));
+/* 121 */             c2[1] = (int)((c1[1] ) * (ratio));
 /* 122 */           
 /* 123 */             
 /*     *
-/* 125 */             c2[2] = (int)((c1[2] ) * (d0 / d));
+/* 125 */             c2[2] = (int)((c1[2] ) * (ratio));
 /* 126 */
 int xo = x0 - d + i;
 int yo = y0 - d + j;
