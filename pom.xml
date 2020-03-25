@@ -95,7 +95,7 @@
             
             <configuration>
               <!-- Specific configuration for the given reports -->
-              
+              <includeDependencySources>true</includeDependencySources>
             </configuration>
           </execution>
         </executions>
