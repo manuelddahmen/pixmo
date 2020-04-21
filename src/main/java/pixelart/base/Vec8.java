@@ -11,7 +11,7 @@ public class Vec8 extends BaseMovieGenerator {
      private long time;
      private Color color;
      public Vec8(int rx, int ry) {
-          super() ;
+          super("vec8", "img", rx, ry, false) ;
           vec = new Vec[rx] [ry] ;
      } 
      public double time() {
