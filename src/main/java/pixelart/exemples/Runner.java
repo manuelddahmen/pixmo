@@ -23,7 +23,7 @@
 /*    */         
 /*    */         public void run()
 /*    */         {
-/* 26 */           BaseMovieGenerator.doit((BaseMovidGenerator)o);
+/* 26 */           BaseMovieGenerator.doit((BaseMovieGenerator)o);
 /*    */         }
 /* 28 */       }).start();
 /*    */   }
