@@ -23,7 +23,7 @@
 /*    */         
 /*    */         public void run()
 /*    */         {
-/* 26 */           ((BaseMovieGenerator)o).doit((Hashtable)Runner.this.gens.get(gen), nbrImages);
+/* 26 */           BaseMovieGenerator.main((BaseMovidGenerator)o);
 /*    */         }
 /* 28 */       }).start();
 /*    */   }
