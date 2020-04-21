@@ -6,8 +6,9 @@ import one.empty3.library.shader.Vec;
 public class Vec8 extends BaseMovieGenerator {
      Timer timer;
      private Vec[][] vec ;
-     
+     private Vec coordXY;
      public Vec8(int rx, int ry) {
+          super() ;
           vec = new Vec[rx] [ry] ;
      } 
      public double time() {
@@ -15,12 +16,13 @@ public class Vec8 extends BaseMovieGenerator {
 
      } 
      public Vec coordXY() {
-         
+         return coordXY;
      
      } 
      public void color(Vec c) {} 
      public void loop() {
           timer = new Timer() ;
+          Color c = new Color[ vec.length] [  vec[0] .length ] ;
           for(int i= 0; i<vec.length; i++) {
                
               for(int j= 0; j<vec[i] .length; j++) {
