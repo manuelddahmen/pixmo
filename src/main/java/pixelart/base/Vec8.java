@@ -29,6 +29,12 @@ public class Vec8 extends BaseMovieGenerator {
           loop() ;
      } 
      
+    /*     */
+/*     */
+    public void init(Hashtable<String, Object> paramHashtable) {
+        } 
+
+    /*     */
      
      public void dessiner() {
 
