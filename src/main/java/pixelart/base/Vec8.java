@@ -50,7 +50,7 @@ public class Vec8 extends BaseMovieGenerator {
          this.color = color;
      } 
     public Color color() {
-        return color;
+        return color==null?Color.BLACK:color;
     } 
      
      
