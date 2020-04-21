@@ -16,7 +16,7 @@ public class Vec8 extends BaseMovieGenerator {
           vec = new Vec[rx] [ry] ;
      } 
      public double time() {
-          return ((double) time) / fps;
+          return ((double) time) / 25;
         // return timer.getTimeElapsed();
 
      } 
@@ -57,14 +57,16 @@ public class Vec8 extends BaseMovieGenerator {
      public void loop() {
          // timer = new Timer() ;
           time++;
-          Color c = new Color[ vec.length] [  vec[0] .length ] ;
+          
           for(int i= 0; i<vec.length; i++) {
                
               for(int j= 0; j<vec[i] .length; j++) {
                    coordXY = new Vec ((double)i,
                                      (double)j ) ;
                    
-                   main(i, j, color() );
+                   main();
+                        
+;
                    
                    setRGB(i, j, color() ) ;
               } 
