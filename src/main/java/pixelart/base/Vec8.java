@@ -48,7 +48,7 @@ public class Vec8 extends BaseMovieGenerator {
                    
                    main(i, j, color() );
                    
-                   setRGB(i, j, color() ) 
+                   setRGB(i, j, color() ) ;
               } 
           } 
      } 
