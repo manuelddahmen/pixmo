@@ -332,34 +332,7 @@ scm:git:git://github.com/manuelddahmen/empty3.git
             <version>2.3.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.jogamp.jocl</groupId>
-            <artifactId>jocl-main</artifactId>
-            <version>2.0.2-rc12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jogamp.joal</groupId>
-            <artifactId>joal-main</artifactId>
-            <version>2.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jogamp.gluegen</groupId>
-            <artifactId>gluegen-rt</artifactId>
-            <version>2.3.2</version>
-            <classifier>natives-windows-amd64</classifier>
-        </dependency>
-        <dependency>
-            <artifactId>joal</artifactId>
-            <groupId>org.jogamp.joal</groupId>
-            <type>jar</type>
-            <version>2.3.2</version>
-            <classifier>natives-windows-amd64</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.jogamp.gluegen</groupId>
-            <artifactId>gluegen-rt-main</artifactId>
-            <version>2.3.2</version>
-        </dependency>
+
        <dependency>
             <groupId>org.swinglabs</groupId>
             <artifactId>swing-layout</artifactId>
@@ -376,22 +349,6 @@ scm:git:git://github.com/manuelddahmen/empty3.git
             <version>0.1.1</version>
         </dependency>
         
-    <!-- https://mvnrepository.com/artifact/org.jogamp.jogl/jogl -->
-    <dependency>
-        <groupId>org.jogamp.jogl</groupId>
-        <artifactId>jogl</artifactId>
-        <version>2.3.2</version>
-    </dependency>
-        <dependency>
-            <groupId>org.jogamp.jogl</groupId>
-            <artifactId>jogl-all</artifactId>
-            <version>2.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.sarxos</groupId>
-            <artifactId>webcam-capture</artifactId>
-            <version>0.3.9</version>
-        </dependency>
       <dependency>
         <groupId>one.empty3</groupId>
           <artifactId>empty3-library-3d</artifactId>
