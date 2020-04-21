@@ -11,7 +11,7 @@
 
     <groupId>one.empty3</groupId>
         <artifactId>pixmo</artifactId>
-    <version>2020.2</version>
+    <version>2020.2-1</version>
     <description>2D rendering engine. Plus modelling.</description>
     <packaging>jar</packaging>
 
