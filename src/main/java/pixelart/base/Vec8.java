@@ -35,6 +35,10 @@ public class Vec8 extends BaseMovieGenerator {
 
      } 
      
+     public void initImage() {
+
+
+     } 
      public void color(Color c) {
          this.color = color;
      } 
