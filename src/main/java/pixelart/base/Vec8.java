@@ -3,11 +3,13 @@
 **/
 package pixelart.base;
 import one.empty3.library.shader.Vec;
+import java.awt.Color;
 public class Vec8 extends BaseMovieGenerator {
-     Timer timer;
+     //Timer timer;
      private Vec[][] vec ;
      private Vec coordXY;
      private long time;
+     private Color color;
      public Vec8(int rx, int ry) {
           super() ;
           vec = new Vec[rx] [ry] ;
@@ -21,7 +23,19 @@ public class Vec8 extends BaseMovieGenerator {
          return coordXY;
      
      } 
-     public void color(Vec c) {} 
+     
+     public void modifierImage() {
+        // TODO METTRE LA LOOP ICI ET DESSINER SUR L IMAGE
+          loop() ;
+     } 
+     public void color(Color c) {
+         this.color = color;
+     } 
+    public Color color() {
+        return color;
+    } 
+     
+     
      public void loop() {
           timer = new Timer() ;
           time++;
@@ -32,7 +46,9 @@ public class Vec8 extends BaseMovieGenerator {
                    coordXY = new Vec ((double)i,
                                      (double)j ) ;
                    
-                   main();
+                   main(i, j, color() );
+                   
+                   setRGB(i, j, color() ) 
               } 
           } 
      } 
