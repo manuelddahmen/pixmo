@@ -4,6 +4,7 @@
 package pixelart.base;
 import one.empty3.library.shader.Vec;
 import java.awt.Color;
+import java.util.*;
 public class Vec8 extends BaseMovieGenerator {
      //Timer timer;
      private Vec[][] vec ;
@@ -54,7 +55,7 @@ public class Vec8 extends BaseMovieGenerator {
      
      
      public void loop() {
-          timer = new Timer() ;
+         // timer = new Timer() ;
           time++;
           Color c = new Color[ vec.length] [  vec[0] .length ] ;
           for(int i= 0; i<vec.length; i++) {
