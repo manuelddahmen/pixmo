@@ -28,6 +28,13 @@ public class Vec8 extends BaseMovieGenerator {
         // TODO METTRE LA LOOP ICI ET DESSINER SUR L IMAGE
           loop() ;
      } 
+     
+     
+     public void dessiner() {
+
+
+     } 
+     
      public void color(Color c) {
          this.color = color;
      } 
