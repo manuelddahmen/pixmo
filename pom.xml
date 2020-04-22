@@ -119,29 +119,7 @@ scm:git:git://github.com/manuelddahmen/pixmo.git
                 </configuration>
 
             </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.2.0</version>
-        <configuration>
-          <!-- Default configuration for all reports -->
-          
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-              <goal>javadoc</goal>
-              <goal>test-javadoc</goal>
-            </goals>
-            
-            <configuration>
-              <!-- Specific configuration for the given reports -->
-              <includeDependencySources>true</includeDependencySources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+      
           <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -197,6 +175,7 @@ scm:git:git://github.com/manuelddahmen/pixmo.git
      </goals>
 		
 		<configuration>
+			<includeDependencySources>false</includeDependencySources>
           <doctitle>My API for ${project.name} ${project.version}</doctitle> <!-- Used by javadoc:javadoc goal -->
           <windowtitle>My API for ${project.name} ${project.version}</windowtitle> <!-- Used by javadoc:javadoc goal -->
  
