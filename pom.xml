@@ -27,9 +27,7 @@
 	<scm>
 		<url>https://github.com/manuelddahmen/pixmo</url>
 		<connection>scm:git:git://github.com/manuelddahmen/pixmo.git</connection>
-		<developerConnection>
-scm:git:git://github.com/manuelddahmen/pixmo.git
-</developerConnection>
+		<developerConnection>scm:git:git://github.com/manuelddahmen/pixmo.git</developerConnection>
 	</scm>
 
 	<developers>
