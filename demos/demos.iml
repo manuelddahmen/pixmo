@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../target/classes" />
     <output-test url="file://$MODULE_DIR$/../target/test-classes" />
     <content url="file://$MODULE_DIR$/..">
@@ -15,7 +15,6 @@
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.3" level="project" />
-    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.9.10" level="project" />
     <orderEntry type="library" name="Maven: com.github.dexecutor:dexecutor-core:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.jcodec:jcodec:0.2.3" level="project" />
@@ -83,6 +82,7 @@
     <orderEntry type="library" name="Maven: com.jhlabs:filters:2.0.235-1" level="project" />
     <orderEntry type="library" name="Maven: com.nativelibs4java:bridj:0.6.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.android.tools:dx:1.7" level="project" />
+    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.4" level="project" />
     <orderEntry type="library" name="Maven: one.empty3:montemedia:0.0.7-2" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
