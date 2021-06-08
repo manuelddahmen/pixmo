@@ -1,0 +1,24 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\jdk-16\bin\javadoc.exe" @options @packages"
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\allclasses-index.html = 1623153123052
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\allpackages-index.html = 1623153123062
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\element-list = 1623153122827
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\help-doc.html = 1623153123119
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\index-all.html = 1623153123112
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\index.html = 1623153123024
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\jquery-ui.overrides.css = 1623153123268
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\member-search-index.js = 1623153123075
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\module-search-index.js = 1623153123064
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\options = 1623153120766
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\overview-summary.html = 1623153123115
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\overview-tree.html = 1623153123017
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\package-search-index.js = 1623153123066
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\packages = 1623153120766
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\script.js = 1623153123139
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\search.js = 1623153123145
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\serialized-form.html = 1623153122892
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\stylesheet.css = 1623153123135
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\tag-search-index.js = 1623153123081
+C:\Users\manue\IdeaProjects\pixmo\target\apidocs\type-search-index.js = 1623153123069
