@@ -10,57 +10,57 @@
     <name>pixmo</name>
 
     <groupId>one.empty3</groupId>
-        <artifactId>pixmo</artifactId>
+    <artifactId>pixmo</artifactId>
     <version>2021.6-SNAPSHOT</version>
     <description>2D rendering engine. Plus modelling.</description>
     <packaging>jar</packaging>
 
-    
-	<licenses>
-		<license>
-			<name>Gnu Gpl 3</name>
-			<url>http://www.fsf.org/licenses/gpl</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
 
-	<scm>
-		<url>https://github.com/manuelddahmen/pixmo</url>
-		<connection>scm:git:git://github.com/manuelddahmen/pixmo.git</connection>
-		<developerConnection>scm:git:git://github.com/manuelddahmen/pixmo.git</developerConnection>
-	</scm>
+    <licenses>
+        <license>
+            <name>Gnu Gpl 3</name>
+            <url>http://www.fsf.org/licenses/gpl</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-	<developers>
-		<developer>
-			<email>dathewolf@gmail.com</email>
-			<name>Manuel D Dahmen
-			</name>
-			<url>https://github.com/manuelddahmen</url>
-			<id>manuelddahmen</id>
-		</developer>
-	</developers>
+    <scm>
+        <url>https://github.com/manuelddahmen/pixmo</url>
+        <connection>scm:git:git://github.com/manuelddahmen/pixmo.git</connection>
+        <developerConnection>scm:git:git://github.com/manuelddahmen/pixmo.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>dathewolf@gmail.com</email>
+            <name>Manuel D Dahmen
+            </name>
+            <url>https://github.com/manuelddahmen</url>
+            <id>manuelddahmen</id>
+        </developer>
+    </developers>
 
     <url>https://github.com/manuelddahmen/pixmo</url>
-    
+
     <distributionManagement>
-  <snapshotRepository>
-    <id>ossrh</id>
-    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-  </snapshotRepository>
-  <repository>
-    <id>ossrh</id>
-    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-  </repository>
-<!--
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <!--
 
-<repository>
-            <id>if2</id>
-            <name>empty3.one</name>
-            <url>ftp://ftp.empty3.one/downloads/maven</url>
-</repository>
--->
+        <repository>
+                    <id>if2</id>
+                    <name>empty3.one</name>
+                    <url>ftp://ftp.empty3.one/downloads/maven</url>
+        </repository>
+        -->
 
-</distributionManagement>
+    </distributionManagement>
 
 
     <build>
@@ -117,84 +117,6 @@
                 </configuration>
 
             </plugin>
-      
-          <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <!-- here the phase you need -->
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>runscripts/</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-		<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-source-plugin</artifactId>
-      <version>2.2.1</version>
-      <executions>
-        <execution>
-          <id>attach-sources</id>
-          <goals>
-            <goal>jar-no-fork</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-javadoc-plugin</artifactId>
-      <version>2.9.1</version>
-      <executions>
-        <execution>
-          <id>attach-javadocs</id>
-          <goals>
-            <goal>javadoc</goal><!-- default jar -->
-     <goal>jar</goal>
-     </goals>
-		
-		<configuration>
-			<includeDependencySources>false</includeDependencySources>
-          <doctitle>My API for ${project.name} ${project.version}</doctitle> <!-- Used by javadoc:javadoc goal -->
-          <windowtitle>My API for ${project.name} ${project.version}</windowtitle> <!-- Used by javadoc:javadoc goal -->
- 
-          <testDoctitle>My Test API for ${project.name} ${project.version}</testDoctitle> <!-- Used by javadoc:test-javadoc goal -->
-          <testWindowtitle>My Test API for ${project.name} ${project.version}</testWindowtitle> <!-- Used by javadoc:test-javadoc goal -->
- </configuration>
-			
-			</execution>
-      </executions>
-    </plugin>
-<plugin>
-      <groupId>org.sonatype.plugins</groupId>
-      <artifactId>nexus-staging-maven-plugin</artifactId>
-      <version>1.6.7</version>
-      <extensions>true</extensions>
-      <configuration>
-        <serverId>ossrh</serverId>
-        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-        <autoReleaseAfterClose>true</autoReleaseAfterClose>
-      </configuration>
-    </plugin>
 
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -224,54 +146,132 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.6</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-		  <configuration>
-        <keyname>22EE55E4</keyname>
-			  
-      </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    <plugin>
-      <groupId>com.github.github</groupId>
-      <artifactId>site-maven-plugin</artifactId>
-      <version>0.12</version>
-      <configuration>
-        <message>Creating site for ${project.version}</message>
-      </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>site</goal>
-          </goals>
-          <phase>site</phase>
-        </execution>
-      </executions>
-    </plugin>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>javadoc</goal><!-- default jar -->
+                            <goal>jar</goal>
+                        </goals>
 
- <plugin>
-      <groupId>org.sonatype.ossindex.maven</groupId>
-      <artifactId>ossindex-maven-plugin</artifactId>
-      <executions>
-        <execution>
-          <id>audit-dependencies</id>
-          <phase>validate</phase>
-          <goals>
-            <goal>audit</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
+                        <configuration>
+                            <includeDependencySources>false</includeDependencySources>
+                            <doctitle>My API for ${project.name} ${project.version}
+                            </doctitle> <!-- Used by javadoc:javadoc goal -->
+                            <windowtitle>My API for ${project.name} ${project.version}
+                            </windowtitle> <!-- Used by javadoc:javadoc goal -->
+                        </configuration>
+
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>runscripts/</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>22EE55E4</keyname>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>Creating site for ${project.version}</message>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.ossindex.maven</groupId>
+                <artifactId>ossindex-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>audit-dependencies</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>audit</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
         <extensions>
@@ -283,32 +283,32 @@
             </extension>
         </extensions>
     </build>
-<repositories>
+    <repositories>
 
 
-<repository>
-          <id>mvn-r</id>
-          <name>mvn r</name>
-          <url>http://mvnrepository.com/maven</url>
+        <repository>
+            <id>mvn-r</id>
+            <name>mvn r</name>
+            <url>http://mvnrepository.com/maven</url>
         </repository>
-<repository>
-<id>spring io</id>
-<url>https://repo.spring.io/plugins-release/</url>
+        <repository>
+            <id>spring io</id>
+            <url>https://repo.spring.io/plugins-release/</url>
         </repository>
-<repository>
-<id>maven-central</id>
-<url>https://repo1.maven.org/maven2/</url>
+        <repository>
+            <id>maven-central</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
 
-<repository>
-<id>empty3</id>
-<url>https://empty3.one/downloads/maven/</url>
+        <repository>
+            <id>empty3</id>
+            <url>https://empty3.one/downloads/maven/</url>
         </repository>
-<repository>
-<id>netbeans</id>
-<url>http://bits.netbeans.org/maven2/</url>
+        <repository>
+            <id>netbeans</id>
+            <url>http://bits.netbeans.org/maven2/</url>
         </repository>
-</repositories>
+    </repositories>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
@@ -324,11 +324,10 @@
         </dependency>
 
 
-        
-      <dependency>
-        <groupId>one.empty3</groupId>
-          <artifactId>empty3-library-3d</artifactId>
-        <version>2020.2</version>
-      </dependency>
+        <dependency>
+            <groupId>one.empty3</groupId>
+            <artifactId>empty3-library-3d</artifactId>
+            <version>2020.2</version>
+        </dependency>
     </dependencies>
 </project>
