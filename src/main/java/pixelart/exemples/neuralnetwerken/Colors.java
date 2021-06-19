@@ -1,19 +1,17 @@
 /*    */
 package pixelart.exemples.neuralnetwerken;
-/*    */
-/*    */
 
 import pixelart.base.BaseMovieGenerator;
 
 import java.awt.*;
 import java.util.Hashtable;
 
-/*    */
-/*    */ public class Colors
+
+ public class Colors
         /*    */ extends BaseMovieGenerator
         /*    */ {
     private static final int NUMFRAMES = 25 * 60 * 6;
-    /* 12 */   private pixelart.exemples.neuralnetwerken.ColorNetwerk cn = null;
+    private pixelart.exemples.neuralnetwerken.ColorNetwerk cn = null;
 
     /*    */
     /*    */
@@ -38,21 +36,7 @@ import java.util.Hashtable;
             isGui = Boolean.parseBoolean(args[1]);
         /* 72 */
         Colors c = new Colors(path, "im2-", 1388, 768, isGui);
-        /* 73 */
-        c.initMontrerImage();
-        /* 74 */
-        for (int i = 0; i < NUMFRAMES; i++) {
-            /* 75 */
-            c.creerImage();
-            /* 76 */
-            c.initImage();
-            /* 77 */
-            c.dessiner();
-
-            c.enregistrerImage();
-            /*    */
-        }
-        /*    */
+        doit(c);
     }
 
     /*    */
@@ -102,23 +86,19 @@ import java.util.Hashtable;
             }
             /* 53 */
         }
-        g.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), null);
+        //g.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), null);
         System.out.println("+");
         /*    */
     }
 
-    /*    */
-    /*    */
-    /*    */
-    /*    */
+
     public void modifierImage() {
     }
 
-    /*    */
-    /*    */
+
     public void init(Hashtable<String, Object> objects) {
     }
-    /*    */
+
 }
 
 

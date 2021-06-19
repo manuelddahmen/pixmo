@@ -48,7 +48,7 @@ public abstract class BaseMovieGenerator {
         return frame;
     }
     public void creerImage() {
-        this.image = new BufferedImage(this.largeur, this.hauteur, BufferedImage.TYPE_INT_ARGB);
+        this.image = new BufferedImage(this.largeur, this.hauteur, BufferedImage.TYPE_INT_RGB);
         this.g = this.image.createGraphics();
         if (isGui)
             this.g2 = this.jPanel.getGraphics();
@@ -61,8 +61,9 @@ public abstract class BaseMovieGenerator {
             File file = new File(filename);
             System.out.println(file.getAbsolutePath());
 
-            if(image!=null&&
-                ImageIO.write(this.image, "jpg", file))
+            if(image==null)
+                return;
+            if(ImageIO.write(this.image, "JPEG", file))
             {
                 System.out.println("Image written"+ image+"\nPath:"+file.getAbsolutePath());
             } else
@@ -123,7 +124,6 @@ public abstract class BaseMovieGenerator {
         b.initMontrerImage();
 
         for (int i = 0; i < 12590/*((Integer) params.get("nombre")).intValue()*/; i++) {
-            b.initImage();
             b.creerImage();
             b.initImage();
             b.dessiner();
